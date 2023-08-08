@@ -4,7 +4,7 @@ metadata:
   name: soda-checks
   namespace: tbd
 data:
-  spre_styringsinfo_dataset.yaml: |
+  sprestyringsinfo.yaml: |
     checks for public_sendt_soknad:
       # Standard numeric opplegg
       - row_count > 0: 
