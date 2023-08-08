@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: styringsinfo-kvalitetssjekk-soda-checks
+  name: soda-checks
   namespace: tbd
 data:
   helse-styringsinfo-kvalitetssjekk.yaml: |
