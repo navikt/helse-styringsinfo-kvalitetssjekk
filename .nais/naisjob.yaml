@@ -4,7 +4,7 @@ metadata:
   labels:
     team: tbd
   name: styringsinfo-kvalitetssjekk
-  namespace: tdb
+  namespace: tbd
 spec:
   image: ghcr.io/navikt/nada-soda:2023-06-12-ac65194 # TODO: Vurder å bruke en tag som ikke er knyttet til en commit?
   accessPolicy:
