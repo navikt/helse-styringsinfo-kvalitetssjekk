@@ -7,5 +7,5 @@ data:
   spre_styringsinfo_dataset.yaml: |
     checks for public_sendt_soknad:
       # Standard numeric opplegg
-      - row_count = 0:
+      - row_count > 0: 
           name: "Sjekk for evt tom tabell"
