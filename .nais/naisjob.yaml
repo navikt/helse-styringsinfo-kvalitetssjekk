@@ -2,11 +2,11 @@ apiVersion: nais.io/v1
 kind: Naisjob
 metadata:
   labels:
-    team: nada
-  name: dataobs-soda-nada
-  namespace: nada
+    team: tbd
+  name: styringsinfo-kvalitetssjekk
+  namespace: tdb
 spec:
-  image: ghcr.io/navikt/nada-soda:2023-06-12-ac65194
+  image: ghcr.io/navikt/nada-soda:2023-06-12-ac65194 # TODO: Vurder å bruke en tag som ikke er knyttet til en commit?
   accessPolicy:
     outbound:
       rules:
@@ -18,8 +18,8 @@ spec:
     - name: SODA_CHECKS_FOLDER
       value: /var/run/configmaps/soda-checks
     - name: SLACK_CHANNEL
-      value: "#soda-test"
-  schedule: '15 11 * * *'
+      value: "#sykepenger-styringsinfo-data"
+  schedule: '09 11 * * *' # TODO: Vurder å kjøre oftere? (enn kl 09:11 hver dag)
   failedJobsHistoryLimit: 1
   successfulJobsHistoryLimit: 1
   backoffLimit: 1
@@ -32,15 +32,15 @@ spec:
     - resource:
         apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
         kind: Project
-        name: nada-prod-6977
+        name: tbd-dev-7ff9
       role: roles/bigquery.readSessionUser
     - resource:
         apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
         kind: Project
-        name: nada-prod-6977
+        name: tbd-dev-7ff9
       role: roles/bigquery.dataViewer
     - resource:
         apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
         kind: Project
-        name: nada-prod-6977
+        name: tbd-dev-7ff9
       role: roles/bigquery.jobUser
