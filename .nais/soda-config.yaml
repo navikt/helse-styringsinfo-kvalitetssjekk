@@ -5,7 +5,7 @@ metadata:
   namespace: tbd
 data:
   config.yaml: |
-    data_source sprestyringsinfo:
+    data_source spre_styringsinfo_dataset:
       type: bigquery
       connection:
         project_id: tbd-dev-7ff9
