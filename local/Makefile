@@ -6,11 +6,10 @@ help:
 	 @echo "$$(grep -hE '^\S+:.*##' $(MAKEFILE_LIST) | sed -e 's/:.*##\s*/:/' -e 's/^\(.\+\):\(.*\)/\\x1b[36m\1\\x1b[m:\2/' | column -c2 -t -s :)"
 
 python-bootstrap: # Setter opp miljø - antar at man har Homebrew
-	brew install jq
-	brew install poetry
+	@jq --version || brew install jq
+	@poetry --version || brew install poetry
 	poetry install
 
 run-soda-scan: python-bootstrap ## Kjører sjekker
-	gcloud --format=json auth list | jq --exit-status '.[] | select(.status == "ACTIVE")' || gcloud auth login
-	# gcloud config set project tbd-dev-7ff9
+	@gcloud --format=json auth list | jq --exit-status '.[] | select(.status == "ACTIVE")' || gcloud auth application-default login
 	poetry run python ./soda-scan.py
