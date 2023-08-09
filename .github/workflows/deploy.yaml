@@ -14,9 +14,15 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - name: Deploy
+      - name: Deploy dev-gcp
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          RESOURCE: nais/soda-config-dev.yaml,nais/soda-checks.yaml,nais/naisjob-dev.yaml
+      - name: Deploy prod-gcp
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: nais/soda-config-prod.yaml,nais/soda-checks.yaml,nais/naisjob-prod.yaml
