@@ -15,4 +15,4 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: .nais/soda-config.yaml,.nais/soda-checks.yaml,.nais/naisjob.yaml
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
