@@ -1,3 +1,15 @@
 checks for public_sendt_soknad:
-  - row_count = 0:
+  - row_count > 0:
+      name: "Sjekk for evt tom tabell"
+
+checks for public_vedtak_fattet:
+  - row_count > 0:
+      name: "Sjekk for evt tom tabell"
+
+checks for public_vedtak_forkastet:
+  - row_count > 0:
+      name: "Sjekk for evt tom tabell"
+
+checks for public_vedtak_dokument_mapping:
+  - row_count > 0:
       name: "Sjekk for evt tom tabell"

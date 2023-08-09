@@ -3,3 +3,9 @@ data_source spre_styringsinfo_dataset:
   connection:
     project_id: tbd-dev-7ff9
     dataset: spre_styringsinfo_dataset
+
+data_source styringsinfo_dataset:
+  type: bigquery
+  connection:
+    project_id: tbd-dev-7ff9
+    dataset: styringsinfo_dataset

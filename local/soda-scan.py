@@ -1,6 +1,9 @@
 import os
 from soda.scan import Scan
 import json
+import warnings
+
+warnings.filterwarnings("ignore", message='Your application has authenticated using end user credentials', category=Warning)
 
 for f in os.listdir("soda-checks"):
     s = Scan()
@@ -17,8 +20,10 @@ for f in os.listdir("soda-checks"):
     messages = [log["message"] for log in scan_result["logs"]]
 
     print()
-    print(f"===== Report for {dataset} ======")
+    print(f"===== Report for {dataset} =========")
+    print()
     for message in messages:
         print(message)
-    print(f"===== Report for {dataset} end ==")
+    print()
+    print(f"===== Report for {dataset} end =====")
     print()
