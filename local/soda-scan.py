@@ -1,5 +1,6 @@
 import os
 from soda.scan import Scan
+import json
 
 for f in os.listdir("soda-checks"):
     s = Scan()
@@ -9,4 +10,15 @@ for f in os.listdir("soda-checks"):
     s.add_sodacl_yaml_file(f"soda-checks/{f}")
     s.execute()
 
-    print(scan.get_scan_results())
+    # print(json.dumps(s.get_scan_results(), indent=4, sort_keys=True))
+
+    scan_result = s.get_scan_results()
+
+    messages = [log["message"] for log in scan_result["logs"]]
+
+    print()
+    print(f"===== Report for {dataset} ======")
+    for message in messages:
+        print(message)
+    print(f"===== Report for {dataset} end ==")
+    print()

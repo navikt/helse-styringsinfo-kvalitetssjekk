@@ -1,5 +1,5 @@
-data_source platform_users:
+data_source spre_styringsinfo_dataset:
   type: bigquery
   connection:
-    project_id: nada-prod-6977
-    dataset: platform_users
+    project_id: tbd-dev-7ff9
+    dataset: spre_styringsinfo_dataset
