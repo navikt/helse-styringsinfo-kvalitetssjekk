@@ -1,0 +1,4 @@
+gcp:
+  project: tbd-prod-eacd
+cron:
+  schedule: '09 11 * * *' # Daglig 09:11

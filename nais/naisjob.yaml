@@ -19,7 +19,7 @@ spec:
       value: /var/run/configmaps/soda-checks
     - name: SLACK_CHANNEL
       value: "#sykepenger-styringsinfo-data"
-  schedule: '09 11 * * *' # TODO: Vurder å kjøre oftere? (enn kl 09:11 hver dag)
+  schedule: {{ cron.schedule }}
   failedJobsHistoryLimit: 1
   successfulJobsHistoryLimit: 1
   backoffLimit: 1
@@ -32,15 +32,15 @@ spec:
     - resource:
         apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
         kind: Project
-        name: tbd-prod-eacd
+        name: {{ gcp.project_id }}
       role: roles/bigquery.readSessionUser
     - resource:
         apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
         kind: Project
-        name: tbd-prod-eacd
+        name: {{ gcp.project_id }}
       role: roles/bigquery.dataViewer
     - resource:
         apiVersion: resourcemanager.cnrm.cloud.google.com/v1beta1
         kind: Project
-        name: tbd-prod-eacd
+        name: {{ gcp.project_id }}
       role: roles/bigquery.jobUser

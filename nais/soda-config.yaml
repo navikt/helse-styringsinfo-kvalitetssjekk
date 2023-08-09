@@ -8,5 +8,5 @@ data:
     data_source spre_styringsinfo_dataset:
       type: bigquery
       connection:
-        project_id: tbd-prod-eacd
+        project_id: {{ gcp.project_id }}
         dataset: spre_styringsinfo_dataset
