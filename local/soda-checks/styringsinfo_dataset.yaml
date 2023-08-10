@@ -5,3 +5,5 @@ checks for styringsinfo_sendt_soknad_view:
 checks for styringsinfo_vedtak_fattet_view:
   - row_count > 0:
       name: "Sjekk for evt tom tabell"
+  - freshness(vedtak_fattet) < 1d:
+      name: "Har noe blitt vedtatt siste døgn?"

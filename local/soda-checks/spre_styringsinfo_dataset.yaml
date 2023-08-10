@@ -2,7 +2,7 @@ checks for public_sendt_soknad:
   - row_count > 0:
       name: "Sjekk for evt tom tabell"
   - freshness(sendt) < 1d:
-      name: "Har noe blitt vedtatt siste døgn?"
+      name: "Har noen søknader blitt mottatt siste døgn?"
 
 checks for public_vedtak_fattet:
   - row_count > 0:
