@@ -1,6 +1,8 @@
 checks for styringsinfo_sendt_soknad_view:
   - row_count > 0:
       name: "Sjekk for evt tom tabell"
+  - freshness(soknad_mottatt) < 1d:
+      name: "Har noen søknader blitt mottatt siste døgn?"
 
 checks for styringsinfo_vedtak_fattet_view:
   - row_count > 0:
