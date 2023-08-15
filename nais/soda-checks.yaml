@@ -6,22 +6,14 @@ metadata:
 data:
   spre_styringsinfo_dataset.yaml: |
     checks for public_sendt_soknad:
-    - row_count > 0:
-        name: "Sjekk for evt tom tabell"
-    - freshness(sendt) < 1d:
-        name: "Har noen søknader blitt mottatt siste døgn?"
-
+  
     checks for public_vedtak_fattet:
-      - row_count > 0:
-          name: "Sjekk for evt tom tabell"
-      - freshness(vedtak_fattet_tidspunkt) < 1d:
-          name: "Har noe blitt vedtatt siste døgn?"
     
     checks for public_vedtak_forkastet:
       - row_count > 0:
           name: "Sjekk for evt tom tabell"
       - freshness(forkastet_tidspunkt) < 1d:
-          name: "Har noe blitt forkastet siste døgn?"
+          name: "Vi har ikke sett noen vedtak bli forkastet det siste døgnet"
     
     checks for public_vedtak_dokument_mapping:
       - row_count > 0:
@@ -30,12 +22,12 @@ data:
   styringsinfo_dataset.yaml: |
     checks for styringsinfo_sendt_soknad_view:
       - row_count > 0:
-          name: "Sjekk for evt tom tabell"
+          name: "Sjekk for evt tomt view"
       - freshness(soknad_mottatt) < 1d:
-          name: "Har noen søknader blitt mottatt siste døgn?"
+          name: "Vi har ikke mottatt noen søknader det siste døgnet"
     
     checks for styringsinfo_vedtak_fattet_view:
       - row_count > 0:
-          name: "Sjekk for evt tom tabell"
+          name: "Sjekk for evt tomt view"
       - freshness(vedtak_fattet) < 1d:
-          name: "Har noe blitt vedtatt siste døgn?"
+          name: "Vi har ikke sett noen fattede vedtak det siste døgnet"
