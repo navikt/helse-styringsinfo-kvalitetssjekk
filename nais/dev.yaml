@@ -2,3 +2,5 @@ gcp:
   project: tbd-dev-7ff9
 cron:
   schedule: '14 11 * * *'
+slack:
+  channel: "#sykepenger-styringsinfo-dev"
