@@ -8,7 +8,7 @@ help:
 python-bootstrap: # Setter opp miljø - antar at man har Homebrew
 	@jq --version || brew install jq
 	@poetry --version || brew install poetry
-	poetry install
+	poetry update
 
 run-soda-scan: python-bootstrap ## Kjører sjekker
 	@gcloud --format=json auth list | jq --exit-status '.[] | select(.status == "ACTIVE")' || gcloud auth application-default login
