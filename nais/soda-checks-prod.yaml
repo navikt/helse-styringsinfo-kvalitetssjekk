@@ -16,3 +16,7 @@ data:
           name: "Sjekk for evt tomt view"
       - freshness(vedtak_fattet) < 1d:
           name: "Vi har ikke sett noen fattede vedtak det siste døgnet"
+
+    checks for styringsinfo_datakvalitet_soknadhendelser_view:
+      - max(diff_soknadhendelser) <= 5:
+          name: "Diff i antall søknadshendelser mellom Flex og styringsinfo er liten nok til å skyldes kode 6"
