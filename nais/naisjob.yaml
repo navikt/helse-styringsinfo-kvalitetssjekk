@@ -25,7 +25,8 @@ spec:
   backoffLimit: 1
   concurrencyPolicy: Forbid
   filesFrom:
-    - configmap: soda-checks
+    - configmap: soda-checks-common
+    - configmap: soda-checks-{{ env }}
     - configmap: soda-config
   gcp:
     permissions:

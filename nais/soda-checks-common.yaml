@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: soda-checks
+  namespace: tbd
+data:
+  spre_styringsinfo_dataset.yaml: |
+    checks for public_vedtak_forkastet:
+      - row_count > 0:
+          name: "Sjekk for evt tom tabell"
+      - freshness(forkastet_tidspunkt) < 1d:
+          name: "Vi har ikke sett noen vedtak bli forkastet det siste døgnet"
+    
+    checks for public_vedtak_dokument_mapping:
+      - row_count > 0:
+          name: "Sjekk for evt tom tabell"
