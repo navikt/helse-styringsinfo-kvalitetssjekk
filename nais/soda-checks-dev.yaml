@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: soda-checks-dev
+  namespace: tbd
+data:
+  styringsinfo_dataset.yaml: |
+    checks for styringsinfo_sendt_soknad_view:
+      - row_count > 0:
+          name: "Sjekk for evt tomt view"
+      - freshness(soknad_mottatt) < 1d:
+          name: "Vi har ikke mottatt noen søknader det siste døgnet"
+    
+    checks for styringsinfo_vedtak_fattet_view:
+      - row_count > 0:
+          name: "Sjekk for evt tomt view"
+      - freshness(vedtak_fattet) < 1d:
+          name: "Vi har ikke sett noen fattede vedtak det siste døgnet"

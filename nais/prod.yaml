@@ -4,3 +4,4 @@ cron:
   schedule: '09 11 * * *' # Daglig 09:11
 slack:
   channel: "#sykepenger-styringsinfo"
+env: prod
