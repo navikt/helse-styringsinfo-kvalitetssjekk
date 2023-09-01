@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "soda-checks"
 version = "0.1.0"
-description = "Kjøre sjekker fra lokal maskin (mot BigQuery)"
+description = "Kjører Soda-sjekker fra lokal maskin mot BigQuery."
 authors = ["Your Name <you@example.com>"]
 license = "MIT"
 readme = "README.md"
@@ -12,7 +12,6 @@ python = "^3.11"
 soda-core-bigquery = "^3.0.47"
 google-cloud-bigquery-storage = "^2.22.0"
 pyarrow = "^12.0.1"
-
 
 [build-system]
 requires = ["poetry-core"]
