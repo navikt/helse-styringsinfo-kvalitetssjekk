@@ -2,5 +2,3 @@ gcp:
   project: tbd-dev-7ff9
 slack:
   channel: "#sykepenger-styringsinfo-dev"
-env: dev
-

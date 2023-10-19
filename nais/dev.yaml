@@ -4,5 +4,4 @@ cron:
   schedule: '14 11 * * *'
 slack:
   channel: "#sykepenger-styringsinfo-dev"
-env: dev
 
