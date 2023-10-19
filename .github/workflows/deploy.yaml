@@ -20,7 +20,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks-common.yaml,nais/soda-checks-dev.yaml,nais/naisjob.yaml
           VARS: nais/dev-run-once.yaml
 
       - name: Deploy dev-gcp run on schedule
@@ -28,7 +28,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
-          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks-common.yaml,nais/soda-checks-dev.yaml,nais/naisjob.yaml
           VARS: nais/dev.yaml
 
       - name: Deploy prod-gcp run once
@@ -36,7 +36,7 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks-common.yaml,nais/soda-checks-prod.yaml,nais/naisjob.yaml
           VARS: nais/prod-run-once.yaml
 
       - name: Deploy prod-gcp run on schedule
@@ -44,5 +44,5 @@ jobs:
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
-          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks-common.yaml,nais/soda-checks-prod.yaml,nais/naisjob.yaml
           VARS: nais/prod.yaml
