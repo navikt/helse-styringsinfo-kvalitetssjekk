@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: soda-checks
+  name: soda-checks-prod
   namespace: tbd
 data:
   styringsinfo_dataset.yaml: |
