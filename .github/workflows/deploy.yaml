@@ -15,7 +15,15 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Deploy dev-gcp
+      - name: Deploy dev-gcp run once
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: dev-gcp
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          VARS: nais/dev-run-once.yaml
+
+      - name: Deploy dev-gcp run on schedule
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
@@ -23,7 +31,15 @@ jobs:
           RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
           VARS: nais/dev.yaml
 
-      - name: Deploy prod-gcp
+      - name: Deploy prod-gcp run once
+        uses: nais/deploy/actions/deploy@v1
+        env:
+          APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
+          CLUSTER: prod-gcp
+          RESOURCE: nais/soda-config.yaml,nais/soda-checks.yaml,nais/naisjob.yaml
+          VARS: nais/prod-run-once.yaml
+
+      - name: Deploy prod-gcp run on schedule
         uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
