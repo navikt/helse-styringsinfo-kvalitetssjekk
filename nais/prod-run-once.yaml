@@ -1,0 +1,5 @@
+gcp:
+  project: tbd-prod-eacd
+slack:
+  channel: "#sykepenger-styringsinfo"
+env: prod
