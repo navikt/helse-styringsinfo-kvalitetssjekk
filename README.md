@@ -1,4 +1,4 @@
-# helse-styringsinfo-kvalitetssjekk
+# Sykepenge-styringsinfo-kvalitetssjekk
 
 Naisjob for periodisk kjøring av Soda-sjekker på BigQuery-tabeller og varsle til Slack ved avvik.
 
@@ -11,8 +11,7 @@ Konfigurasjonen ligger i [nais/](nais/).
 I mappen [local/](local/) ligger det filer som kan brukes til å kjøre fra lokal maskin. Merk! at disse IKKE er det samme som kjøres i naisjobben.
 
 For å kjøre lokalt mot BigQuery kan du forsøke følgende:
-
-```sh
+```
 cd local
 make run-soda-scan
 ```
