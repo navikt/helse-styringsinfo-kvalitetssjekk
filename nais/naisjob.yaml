@@ -3,7 +3,7 @@ kind: Naisjob
 metadata:
   labels:
     team: tbd
-  name: styringsinfo-kvalitetssjekk{{#if cron.schedule}}{{else}}-run-on-deploy{{/if}}
+  name: styringsinfo-kvalitetssjekk
   namespace: tbd
 spec:
   image: ghcr.io/navikt/nada-soda:2023-06-12-ac65194 # TODO: Vurder å bruke en tag som ikke er knyttet til en commit?
@@ -19,9 +19,7 @@ spec:
       value: /var/run/configmaps/soda-checks
     - name: SLACK_CHANNEL
       value: {{ slack.channel }}
-  {{#if cron.schedule}}
   schedule: {{ cron.schedule }}
-  {{/if}}
   failedJobsHistoryLimit: 1
   successfulJobsHistoryLimit: 1
   backoffLimit: 1
