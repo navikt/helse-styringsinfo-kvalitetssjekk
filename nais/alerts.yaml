@@ -1,0 +1,24 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: helse-styringsinfo-kvalitetssjekk-alerts
+  namespace: tbd
+  labels:
+    team: tbd
+spec:
+  groups:
+    - name: helse-styringsinfo-kvalitetssjekk-alerts
+      rules:
+        - alert: NaisjobFailed
+          expr: kube_job_failed{job_name=~"^styringsinfo-kvalitetssjekk.*", namespace="tbd"} > 0
+          for: 2m
+          annotations:
+            consequence: "Naisjob som sjekker BigQuery-data for styringsinformasjon feilet"
+            action: "@sp-styringsinfo-bros - Sjekk https://logs.adeo.no/app/r/s/c4cLP"
+            summary: |-
+              NaisJob helse-styringsinfo-kvalitetssjekk feiler tbd - sjekkene fullføres ikke. 
+              Repo: https://github.com/navikt/helse-styringsinfo-kvalitetssjekk
+              Alert: https://github.com/navikt/helse-styringsinfo-kvalitetssjekk/blob/main/nais/alerts.yml
+          labels:
+            namespace: tbd
+            severity: warning

@@ -7,8 +7,8 @@ on:
       - 'README.md'
       - 'LICENSE.md'
       - 'local/'
-      - 'nais/alerts.yml'
-      - '.github/workflows/alerts.yml'
+      - 'nais/alerts.yaml'
+      - '.github/workflows/alerts.yaml'
 
 jobs:
   deploy:
