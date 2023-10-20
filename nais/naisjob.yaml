@@ -18,7 +18,7 @@ spec:
     - name: SODA_CHECKS_FOLDER
       value: /var/run/configmaps/soda-checks
     - name: SLACK_CHANNEL
-      value: {{ slack.channel }}
+      value: "{{ slack.channel }}"
   {{#if cron.schedule}}
   schedule: {{ cron.schedule }}
   {{/if}}
