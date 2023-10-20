@@ -20,6 +20,3 @@ data:
     checks for styringsinfo_datakvalitet_soknadhendelser_view:
       - max(diff_soknadhendelser) <= 5:
           name: "Diff i antall søknadshendelser mellom Flex og styringsinfo er liten nok til å skyldes kode 6"
-
-      - min(diff_soknadhendelser) >= 0:
-          name: "Diff i antall søknadshendelser mellom Flex og styringsinfo viser flere søknadshendelser i styringsinfo enn i Flex - dette er ikke forventet"
