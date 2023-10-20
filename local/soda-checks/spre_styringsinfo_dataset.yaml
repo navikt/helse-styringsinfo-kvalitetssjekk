@@ -1,3 +1,7 @@
+checks for public_sendt_soknad:
+
+checks for public_vedtak_fattet:
+
 checks for public_vedtak_forkastet:
   - row_count > 0:
       name: "Sjekk for evt tom tabell"
