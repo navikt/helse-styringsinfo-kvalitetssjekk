@@ -18,7 +18,7 @@ spec:
             summary: |-
               NaisJob helse-styringsinfo-kvalitetssjekk feiler tbd - sjekkene fullføres ikke. 
               Repo: https://github.com/navikt/helse-styringsinfo-kvalitetssjekk
-              Alert: https://github.com/navikt/helse-styringsinfo-kvalitetssjekk/blob/main/nais/alerts.yml
+              Alert: https://github.com/navikt/helse-styringsinfo-kvalitetssjekk/blob/main/nais/alerts.yaml
           labels:
             namespace: tbd
             severity: warning
