@@ -14,7 +14,7 @@ spec:
           for: 2m
           annotations:
             consequence: "Naisjob som sjekker BigQuery-data for styringsinformasjon feilet"
-            action: "@sp-styringsinfo-bros - Sjekk https://logs.adeo.no/app/r/s/c4cLP"
+            action: "@sp-styringsinfo-bros - Sjekk https://logs.adeo.no/app/r/s/hqwMP"
             summary: |-
               NaisJob helse-styringsinfo-kvalitetssjekk feiler tbd - sjekkene fullføres ikke. 
               Repo: https://github.com/navikt/helse-styringsinfo-kvalitetssjekk
