@@ -31,7 +31,7 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: dev-gcp
           RESOURCE: nais/soda-config.yaml,nais/soda-checks-dev.yaml,nais/naisjob.yaml
-          VARS: nais/dev-run-on-schedule.yaml
+          VARS: nais/dev.yaml
 
       - name: Deploy prod-gcp run once
         uses: nais/deploy/actions/deploy@v1
@@ -47,4 +47,4 @@ jobs:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
           CLUSTER: prod-gcp
           RESOURCE: nais/soda-config.yaml,nais/soda-checks-prod.yaml,nais/naisjob.yaml
-          VARS: nais/prod-run-on-schedule.yaml
+          VARS: nais/prod.yaml

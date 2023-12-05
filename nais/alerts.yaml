@@ -22,7 +22,7 @@ spec:
           labels:
             namespace: tbd
             severity: warning
-            sykepenger_styringsinfo_type_kvalitetssjekk: {{environment}}-alert
+            sykepenger_styringsinfo_type_kvalitetssjekk: dev-alert
             alert_type: custom
 
 ---
@@ -30,42 +30,42 @@ spec:
 apiVersion: monitoring.coreos.com/v1alpha1
 kind: AlertmanagerConfig
 metadata:
-  name: sykepenger-styringsinfo-{{environment}}-slack-kvalitetssjekk
+  name: sykepenger-styringsinfo-dev-slack-kvalitetssjekk
   namespace: tbd
   labels:
     team: tbd
-    alertmanagerConfig: sykepenger-styringsinfo-{{environment}}-slack-kvalitetssjekk
+    alertmanagerConfig: sykepenger-styringsinfo-dev-slack-kvalitetssjekk
 spec:
   receivers:
-    - name: sykepenger-styringsinfo-{{environment}}-receiver-kvalitetssjekk
+    - name: sykepenger-styringsinfo-dev-receiver-kvalitetssjekk
       slackConfigs:
         - apiURL:
             key: apiUrl
             name: slack-webhook
-          channel: '{{slack.channel}}'
+          channel: '#sykepenger-styringsinfo-dev'
           iconEmoji: ':alert:'
-          username: 'Alert {{environment}}-gcp'
+          username: 'Alert dev-gcp'
           sendResolved: true
           title: |-
-            [\{{ .Status | toUpper }}\{{ if eq .Status "firing" }}:\{{ .Alerts.Firing | len }}\{{ end }}] \{{ .CommonLabels.alertname }}
+            [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
           text: >-
-            \{{ range .Alerts }}
-            \{{ if or .Annotations.summary .Annotations.message }}
-            \{{ or .Annotations.summary .Annotations.message }}
-            \{{ println " " }}
-            \{{- end }}
-            \{{- if .Annotations.action }}
-            • *action*: \{{ .Annotations.action }} \{{ println " " }}
-            \{{- end }}
-            \{{ end }}
+            {{ range .Alerts }}
+            {{ if or .Annotations.summary .Annotations.message }}
+            {{ or .Annotations.summary .Annotations.message }}
+            {{ println " " }}
+            {{- end }}
+            {{- if .Annotations.action }}
+            • *action*: {{ .Annotations.action }} {{ println " " }}
+            {{- end }}
+            {{ end }}
   route:
     groupBy:
       - alertname
     matchers:
       - name: "sykepenger_styringsinfo_type_kvalitetssjekk"
         matchType: "="
-        value: "{{environment}}-alert"
+        value: "dev-alert"
     groupInterval: 10s
     groupWait: 5s
-    receiver: sykepenger-styringsinfo-{{environment}}-receiver-kvalitetssjekk
+    receiver: sykepenger-styringsinfo-dev-receiver-kvalitetssjekk
     repeatInterval: 25h
