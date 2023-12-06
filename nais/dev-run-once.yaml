@@ -1,4 +1,5 @@
 gcp:
   project_id: tbd-dev-7ff9
+  flex_project_id: flex-dev-2b16
 slack:
   channel: "#sykepenger-styringsinfo-dev"
