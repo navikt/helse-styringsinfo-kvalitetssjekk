@@ -1,4 +1,4 @@
 gcp:
-  project: tbd-prod-eacd
+  project_id: tbd-prod-eacd
 slack:
   channel: "#sykepenger-styringsinfo"
