@@ -1,7 +1,7 @@
 gcp:
   project_id: tbd-dev-7ff9
 cron:
-  schedule: '14 11 * * *'
+  schedule: '14 11 * * 1-5' # 14:11 mandag til fredag
 slack:
   channel: "#sykepenger-styringsinfo-dev"
 
