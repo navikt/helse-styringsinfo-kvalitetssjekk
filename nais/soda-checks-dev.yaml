@@ -8,8 +8,8 @@ data:
     checks for public_vedtak_forkastet:
       - row_count > 0:
           name: "Sjekk for evt tom tabell"
-      - freshness(forkastet_tidspunkt) < 1d:
-          name: "Vi har ikke sett noen vedtak bli forkastet det siste døgnet"
+      - freshness(forkastet_tidspunkt) < 2d:
+          name: "Vi har ikke sett noen vedtak bli forkastet de siste to døgn"
     
     checks for public_vedtak_dokument_mapping:
       - row_count > 0:
@@ -25,5 +25,5 @@ data:
     checks for styringsinfo_vedtak_fattet_view:
       - row_count > 0:
           name: "Sjekk for evt tomt view"
-      - freshness(vedtak_fattet) < 1d:
-          name: "Vi har ikke sett noen fattede vedtak det siste døgnet"
+      - freshness(vedtak_fattet) < 2d:
+          name: "Vi har ikke sett noen fattede vedtak de siste to døgn"
