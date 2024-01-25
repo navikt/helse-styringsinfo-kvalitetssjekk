@@ -2,3 +2,4 @@
 *.ipynb
 .idea
 local/poetry.lock
+.python-version
