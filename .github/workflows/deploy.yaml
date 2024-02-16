@@ -15,7 +15,7 @@ jobs:
     name: deploy to dev to run once
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
@@ -28,7 +28,7 @@ jobs:
     needs: [deployDevRunOnce]
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: nais/deploy/actions/deploy@v1
         env:
           APIKEY: ${{ secrets.NAIS_DEPLOY_APIKEY }}
@@ -41,7 +41,7 @@ jobs:
     needs: [deployDevRunOnce]
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Deploy prod-gcp run once
         uses: nais/deploy/actions/deploy@v1
         env:
@@ -55,7 +55,7 @@ jobs:
     needs: [deployProRunOnce]
     runs-on: ubuntu-20.04
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Deploy prod-gcp run on schedule
         uses: nais/deploy/actions/deploy@v1
         env:
